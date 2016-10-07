@@ -1,0 +1,5 @@
+source 'https://supermarket.chef.io'
+
+metadata
+cookbook 'hostsfile', '= 0.1.1'
+cookbook 'cron', '~> 3.0.0'
