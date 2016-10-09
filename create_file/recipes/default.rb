@@ -5,6 +5,8 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 file '/tmp/hello.txt' do
-  content 'Hello Teaj..'
+ config_bag = Chef::DataBagItem.load( 'test', 'test' )
+  content 'Hello Dev..'
+#  content config_bag['text']
 end
 

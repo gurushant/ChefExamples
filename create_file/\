@@ -1,0 +1,23 @@
+#
+# Cookbook Name:: create_file
+# Spec:: default
+#
+# Copyright (c) 2016 The Authors, All Rights Reserved.
+
+require 'chefspec'
+require 'spec_helper'
+
+describe 'create_file::default' do 
+	let(:chef_run) do
+	runner=ChefSpec::SoloRunner.new(platform:'ubuntu',version:'12.04')
+	runner.converge(described_recipe)	
+	end
+	
+	it 'creates a file'  do
+	stub_data_bag_item('test', 'test').and_return({
+ 	 id: 'test',
+ 	 name: 'Hello Dev..'
+	})
+	expect(chef_run).to create_file('/tmp/hello.txt').with_content('Hello Dev..')
+	end
+end
